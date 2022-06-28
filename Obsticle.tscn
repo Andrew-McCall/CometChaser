@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Obsticle.gd" type="Script" id=1]
+[ext_resource path="res://PolyAndroid.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Image_0.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 3 )
+emission_enabled = true
+emission = Color( 1, 1, 1, 1 )
+emission_energy = 0.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.2, 0.2, 0.2 )
+
+[node name="RigidBody" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.333333 )
+collision_mask = 2
+gravity_scale = 0.0
+contacts_reported = 9
+contact_monitor = true
+linear_velocity = Vector3( 0, 0, 60 )
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -0.799999 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, -0.025 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_RigidBody_body_entered"]

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Sketchfab_2015_09_29_19_40_53.blend.obj-c088c2576f4e21934dc2446251dc3a16.mesh"
+
+[deps]
+
+files=[ "res://.import/Sketchfab_2015_09_29_19_40_53.blend.obj-c088c2576f4e21934dc2446251dc3a16.mesh" ]
+
+source_file="res://Sketchfab_2015_09_29_19_40_53.blend.obj"
+dest_files=[ "res://.import/Sketchfab_2015_09_29_19_40_53.blend.obj-c088c2576f4e21934dc2446251dc3a16.mesh", "res://.import/Sketchfab_2015_09_29_19_40_53.blend.obj-c088c2576f4e21934dc2446251dc3a16.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

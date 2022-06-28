@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Blaster.gd" type="Script" id=1]
+[ext_resource path="res://Explosion.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CapsuleMesh" id=1]
+radius = 0.4
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.4
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Blaster" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5 )
+mass = 6.0
+gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 1 )
+expolsion = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Blaster"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Blaster"]
+shape = SubResource( 2 )
+
+[node name="Blaster2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5 )
+mass = 6.0
+gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
+linear_velocity = Vector3( 0, 0, -100 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+expolsion = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Blaster2"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../../Blaster2")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Blaster2"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Blaster" to="Blaster" method="_on_Blaster_body_entered"]
+[connection signal="body_entered" from="Blaster2" to="Blaster2" method="_on_Blaster_body_entered"]

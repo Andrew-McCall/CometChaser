@@ -1,0 +1,175 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://space_ship_test_color.png" type="Texture" id=1]
+[ext_resource path="res://Sketchfab_2015_09_29_19_40_53.blend.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://sky.png" type="Texture" id=3]
+[ext_resource path="res://Image_0.png" type="Texture" id=4]
+[ext_resource path="res://PolyAndroid.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://superstar.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Play.gd" type="Script" id=7]
+[ext_resource path="res://Quit.gd" type="Script" id=8]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="PanoramaSky" id=14]
+panorama = ExtResource( 3 )
+
+[sub_resource type="Environment" id=15]
+background_mode = 2
+background_sky = SubResource( 14 )
+ambient_light_sky_contribution = 0.0
+fog_enabled = true
+fog_color = Color( 0, 0, 0, 1 )
+fog_sun_color = Color( 1, 1, 1, 1 )
+fog_sun_amount = 1.0
+fog_depth_begin = 100.0
+fog_depth_end = 150.0
+fog_depth_curve = 1.38696
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 4 )
+emission_enabled = true
+emission = Color( 1, 1, 1, 1 )
+emission_energy = 0.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="DynamicFont" id=16]
+size = 52
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=17]
+default_font = SubResource( 16 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 72
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=19]
+default_font = SubResource( 18 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 45
+font_data = ExtResource( 6 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.854286, -0.148781, 0.498055, 0.393229, 0.811614, -0.432035, -0.33995, 0.564931, 0.751856, 0.869417, 11.7633, 14.8691 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.999053, 0.0435145, 0, -0.0435145, 0.999053, -0.777271, 13.4376, 20 )
+environment = SubResource( 15 )
+current = true
+fov = 80.0
+size = 0.1
+near = 1.5
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.0479924, -0.950148, -0.308085, 0.555684, -0.230905, 0.798685, -0.830007, -0.209529, 0.5169, -0.531662, 16.4274, 32.3562 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 4.66374, 7.20499, 2.70881, -6.89689, 5.31781, -2.27018, -3.41795, -0.899424, 8.277, 5.41984, 26.6932, -7.4879 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 2.22803, 0, -2.00895, -1.31918, 2.26258, -1.46304, 1.51514, 1.96995, 1.68037, 0, 15.9291, -0.466666 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="MeshInstance2"]
+transform = Transform( 2.22803, 0, -2.00895, -1.31918, 2.26258, -1.46304, 1.51514, 1.96995, 1.68037, -12.1274, -17.1654, -6.25247 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="."]
+transform = Transform( 9.01843, 4.45552, 6.54341, 0.877603, -10.4205, 5.88591, 7.86751, -3.94493, -8.15719, 1.81424, 32.0257, -44.7318 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="."]
+transform = Transform( 1.79807, 26.7138, 3.48413, -16.7565, 3.84322, -20.8195, -21.0947, -0.775814, 16.8348, -52.4005, -13.9668, -30.8507 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance8" type="MeshInstance" parent="."]
+transform = Transform( 9.81263, -77.4414, 21.6226, -44.2073, 12.9987, 66.6164, -67.1597, -19.8711, -40.6905, 165.379, 85.7158, 331.177 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance9" type="MeshInstance" parent="."]
+transform = Transform( 0.605718, -4.78033, 1.33473, -2.72885, 0.802386, 4.11213, -4.14566, -1.22661, -2.51176, -1.36229, 36.6303, -93.2602 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="."]
+transform = Transform( 1.9203, -3.95754, -7.85178, -8.14063, 2.23715, -3.11854, 3.32304, 7.76744, -3.10231, -5.05835, 27.9351, -30.8507 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="."]
+transform = Transform( 4.28794, 17.8522, 30.9663, -21.4218, -23.6832, 16.6197, 28.6133, -20.406, 7.80205, 25.4199, 28.8305, -30.8507 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Play" type="Button" parent="CanvasLayer"]
+margin_left = 170.0
+margin_top = 248.0
+margin_right = 366.0
+margin_bottom = 306.0
+rect_pivot_offset = Vector2( 88, 45 )
+theme = SubResource( 17 )
+text = "Play"
+flat = true
+script = ExtResource( 7 )
+
+[node name="Quit" type="Button" parent="CanvasLayer"]
+margin_left = 168.0
+margin_top = 374.0
+margin_right = 364.0
+margin_bottom = 432.0
+rect_pivot_offset = Vector2( 88, 45 )
+theme = SubResource( 17 )
+text = "Quit"
+flat = true
+script = ExtResource( 8 )
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+margin_left = 58.0
+margin_top = 66.0
+margin_right = 487.0
+margin_bottom = 138.0
+theme = SubResource( 19 )
+text = "Comet Chaser!"
+
+[node name="Credit" type="Label" parent="CanvasLayer"]
+margin_left = 103.0
+margin_top = 129.0
+margin_right = 450.0
+margin_bottom = 175.0
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+custom_fonts/font = SubResource( 20 )
+text = "By Andrew McCall"
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.06405, 10.732, 19.2611 )
+light_color = Color( 1, 0, 0.913725, 1 )
+light_energy = 5.0
+
+[connection signal="pressed" from="CanvasLayer/Play" to="CanvasLayer/Play" method="_on_Play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Quit" to="CanvasLayer/Quit" method="_on_Quit_pressed"]

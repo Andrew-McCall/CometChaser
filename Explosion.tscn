@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="Curve" id=16]
+bake_resolution = 10
+_data = [ Vector2( 0.472826, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=17]
+width = 100
+curve = SubResource( 16 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+lifetime_randomness = 0.5
+direction = Vector3( 1, 1, 1 )
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 2.0
+initial_velocity_random = 0.3
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+scale_curve = SubResource( 17 )
+
+[sub_resource type="SphereMesh" id=14]
+height = 1.0
+radial_segments = 8
+rings = 8
+
+[node name="Explosion" type="Particles"]
+emitting = false
+amount = 16
+one_shot = true
+speed_scale = 4.0
+explosiveness = 1.0
+visibility_aabb = AABB( -64, -64, -64, 128, 128, 128 )
+process_material = SubResource( 15 )
+draw_pass_1 = SubResource( 14 )
